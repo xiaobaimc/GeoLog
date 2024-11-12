@@ -1,0 +1,40 @@
+<!-- templates/report_template.html -->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP 地理位置分析</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; }
+        h1 { text-align: center; color: #333; }
+        table { width: 100%; margin-top: 20px; border-collapse: collapse; }
+        th, td { padding: 10px; text-align: center; border: 1px solid #ddd; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>IP 地理位置分析结果</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>IP 地址</th>
+                <th>访问次数</th>
+                <th>国家</th>
+                <th>城市</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ip, count, country, city in geolocation_results %}
+            <tr>
+                <td>{{ ip }}</td>
+                <td>{{ count }}</td>
+                <td>{{ country }}</td>
+                <td>{{ city }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
